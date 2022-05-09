@@ -12,9 +12,12 @@ from qiskit import QuantumCircuit
 class Alice:
 
     def __init__(self, n, alice_bits=np.array([]), alice_bases=np.array([]),
-                 message=[],
-                 alice_key=np.array([]), alice_sample=np.array([]),
+                 message=[], alice_key=np.array([]), alice_sample=np.array([]),
                  shared_key=np.array([]), incoming_basis=np.array([])):
+        """
+        Purpose: Constructor
+
+        """
         self.n = n
         self.alice_bits = alice_bits
         self.alice_bases = alice_bases
@@ -25,20 +28,35 @@ class Alice:
         self.incoming_basis = incoming_basis
 
     def init_bitstring(self):
+        """
+        Purpose: Initializes a random bitstring for to be encoded in the bases
+        initialized in the following method
+
+        Returns: the bitstring
+
+        """
         np.random.seed(seed=0)
         self.alice_bits = randint(2, size=self.n)
         return self.alice_bits
 
     def init_bases(self):
+        """
+        Purpose: Initializes bases
+
+        Returns: Alices's bases used for her encoding
+
+        """
         # bitstring = self.init_bitstring()
         self.alice_bases = randint(2, size=self.n)
         return self.alice_bases
 
+    # Method from:
+    # https://qiskit.org/textbook/ch-algorithms/quantum-key-distribution.html
     def encode_bitstring(self, bits, bases):
         """
-        
+
         Purpose: encodes the given bitstring using the Pauli X and Z matrices
-        
+
         Returns: the encoded bitstring that she will send to Bob
 
         Notes: After Alice chooses a string of random bits of size n and a
@@ -70,17 +88,18 @@ class Alice:
 
     def share_bases(self):
         """
-
-        Purpose: 
+        Purpose: Publicly shares which bases were used in init_bases
 
         Returns: the original bases that were initialized
 
-        Notes: Publicy shares which basis they used for each qubit over Eve's
+        Publicy shares which basis they used for each qubit over Eve's
         channel. Just returns the bases Alice used for each qubit.
 
         """
         return self.init_bases()
 
+    # Method from:
+    # https://qiskit.org/textbook/ch-algorithms/quantum-key-distribution.html
     def remove_garbage(self, alice_bases, bob_bases, bits):
         """
 

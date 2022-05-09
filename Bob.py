@@ -16,6 +16,10 @@ class Bob:
     def __init__(self, n, message=[], measurements=[],
                  bob_bases=[], bob_results=[], bob_key=[], bob_sample=[],
                  alice_sample=[], shared_key=[]):
+        """
+        Purpose: Constructor
+
+        """
         self.n = n
         self.message = message
         self.measurements = measurements
@@ -46,12 +50,15 @@ class Bob:
 
     def measure_message(self, message, bases):
         """
-        s3
+        Purpose: Measures the coded message from Alice.
+
+        Returns: Returns the measured message (her bases) recieved from Alcie.
+
         After reciving alices message, Bob measures each qubit at random with
         random bases.
 
+        Source:
         https://qiskit.org/textbook/ch-algorithms/quantum-key-distribution.html
-
 
         """
         # backend = Aer.get_backend('aer_simulator')  # TODO
@@ -70,7 +77,6 @@ class Bob:
 
     def share_bases(self):
         """
-        s4
         Publicy shares which basis they used for each qubit over Eve's
         channel. Done simultaneously when Alice reveals which bases she used
         to encode her qubits.
