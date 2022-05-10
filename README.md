@@ -35,7 +35,7 @@ Clone the project and navigate to the project directory
 Install any dependencies using pip3
 
 ```bash
-  pip3 install
+  pip3 install qiskit
 ```
 
 Run the program in the terminal using the following for without interception and interception, respectively
