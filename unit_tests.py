@@ -16,8 +16,6 @@ Alice.py unit tests
 
 """
 
-alice = Alice.Alice(32)
-
 
 class TestAlice(unittest.TestCase):
 
@@ -56,8 +54,16 @@ class TestAlice(unittest.TestCase):
         print()
 
 
+"""
+
+Bob.py unit tests
+
+"""
+
+
 class TestBob(unittest.TestCase):
     def test_upper(self):
+        alice = Alice.Alice(32)
         bob = Bob.Bob(32)
         bases = bob.init_bases()
 
