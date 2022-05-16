@@ -38,6 +38,8 @@ Install any dependencies using pip3
   pip3 install qiskit
 ```
 
+Note that there are other dependencies (packages like Numpy and Pandas), so I've omitted these assuming you have the boilerplate code already installed.
+
 Run the program in the terminal using the following for without interception and interception, respectively
 
 ```bash
